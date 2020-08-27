@@ -20,7 +20,7 @@ int maxNum = randomWord();
 boolean bonus = false;
 
 void setup() {
-  size(1200, 1200);
+  size(1000, 1000);
   int Y = height/2;
   for (int i = 0; i < 4; i++ ) {
     positionY[i] = Y;
@@ -51,12 +51,14 @@ void draw() {
   chance_box();
   if (click[27] == true) {
     randomCircle();
-    check();
+    //check();
     bonus();
-    gameEnd();
+    if(!gameEnd()){
+     check(); 
+    };
   }
   frameRate(5);
-  printArray(int(charactor));
+  //printArray(int(charactor));
 }
 
 char array_of_char(int x) {
@@ -165,7 +167,9 @@ int randomWord() {
   return secretWord.length();
 }
 
-void gameEnd() {
+boolean gameEnd() {
+  
+  boolean result = false;
   done = join(answer,"");
   if (num<maxNum) {
     if (done.equals(secretWord)) {
@@ -173,12 +177,15 @@ void gameEnd() {
       textSize(15);
       text("You Win!!!",width/6,height/6+30);
     }
+    result = true;
   } 
   else if (num >= maxNum) {
       fill(0,0,255);
       textSize(15);
       text("Better Luck Next Time, Word = " + secretWord,width/6,height/6+30);
+      result = true;
   }
+  return result;
 }
    
 
