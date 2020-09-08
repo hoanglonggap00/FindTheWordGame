@@ -169,7 +169,7 @@ int randomWord() {
 
 boolean gameEnd() {
   
-  boolean result = false;
+  boolean end = false;
   done = join(answer,"");
   if (num<maxNum) {
     if (done.equals(secretWord)) {
@@ -177,15 +177,15 @@ boolean gameEnd() {
       textSize(15);
       text("You Win!!!",width/6,height/6+30);
     }
-    result = true;
+    end = true;
   } 
   else if (num >= maxNum) {
       fill(0,0,255);
       textSize(15);
       text("Better Luck Next Time, Word = " + secretWord,width/6,height/6+30);
-      result = true;
+      end = true;
   }
-  return result;
+  return end;
 }
    
 
