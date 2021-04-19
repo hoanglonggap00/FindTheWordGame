@@ -1,2 +1,2 @@
 # FindTheWordGame
-this is the processing application i program for WCOM1000 class 
+This is the processing application I program for WCOM1000 class 
